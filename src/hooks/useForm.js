@@ -1,106 +1,61 @@
-import { useMemo, useReducer, useState } from 'react';
-import { useFormContext } from '../store/FormContext';
-import { fetchAPI, submitAPI } from '../utils/apiMockup';
-import { ACTION_TYPES, emailRegex, FORM } from '../utils/Constants';
+import React, { createContext, useReducer, useContext } from 'react';
 
 const initialState = {
   name: '',
   email: '',
   date: '',
   time: '',
-  numberOfGuests: 1,
-  tablePreference: '',
+  numberOfGuests: '',
   occasion: '',
+  tablePreference: '',
   message: '',
 };
 
 function formReducer(state, action) {
   switch (action.type) {
-    case ACTION_TYPES.NAME:
+    case 'UPDATE_FIELD':
       return {
         ...state,
-        [FORM.name]: action.payload,
+        [action.field]: action.value,
       };
-    case ACTION_TYPES.EMAIL:
-      return {
-        ...state,
-        [FORM.email]: action.payload,
-      };
-    case ACTION_TYPES.DATE:
-      return {
-        ...state,
-        [FORM.date]: action.payload,
-      };
-    case ACTION_TYPES.TIME:
-      return {
-        ...state,
-        [FORM.time]: action.payload,
-      };
-    case ACTION_TYPES.GUESTS:
-      return {
-        ...state,
-        [FORM.numberOfGuests]: action.payload,
-      };
-    case ACTION_TYPES.TABLE:
-      return {
-        ...state,
-        [FORM.tablePreference]: action.payload,
-      };
-    case ACTION_TYPES.OCCASION:
-      return {
-        ...state,
-        [FORM.occasion]: action.payload,
-      };
-    case ACTION_TYPES.MESSAGE:
-      return {
-        ...state,
-        [FORM.message]: action.payload,
-      };
+    case 'RESET_FORM':
+      return initialState;
     default:
-      return state;
+      throw new Error(`Unhandled action type: ${action.type}`);
   }
 }
 
-const useForm = () => {
+const FormContext = createContext(null);
+
+const FormProvider = ({ children }) => {
   const [form, dispatch] = useReducer(formReducer, initialState);
-  const [timeSlots, setTimeslots] = useState(['Choose date first']);
-  const formContext = useFormContext();
 
-  const isFormValid = useMemo(() => {
-    return (
-      emailRegex.test(form.email.trim()) &&
-      form.name.trim().length >= 3 &&
-      form.date &&
-      form.time &&
-      form.numberOfGuests
-    );
-  }, [form]);
+  function handleInputChange(event) {
+    const { name, value } = event.target;
+    dispatch({ type: 'UPDATE_FIELD', field: name, value });
+  }
 
-  const handleInputChange = (e) => {
-    const { name, value } = e.target;
-    dispatch({ type: name, payload: value });
+  function resetForm() {
+    dispatch({ type: 'RESET_FORM' });
+  }
 
-    if (name === ACTION_TYPES.DATE) {
-      setTimeslots(fetchAPI(new Date(value)));
-    }
-  };
+  const timeSlots = ['10:00', '12:00', '14:00', '16:00', '18:00', '20:00'];
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  const isFormValid = Object.values(form).every((value) => Boolean(value));
 
-    if (isFormValid) {
-      submitAPI(form);
-      formContext.setForm(form);
-    }
-  };
-
-  return {
+  const contextValue = {
     form,
     timeSlots,
     isFormValid,
     handleInputChange,
-    handleSubmit,
+    resetForm,
   };
+
+  return (
+    <FormContext.Provider value={contextValue}>{children}</FormContext.Provider>
+  );
 };
 
-export default useForm;
+export { FormContext, FormProvider };
+
+export const useForm = () => useContext(FormContext);
