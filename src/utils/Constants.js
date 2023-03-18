@@ -1,7 +1,6 @@
-import greekSalad from "../assets/Salad.jpg";
-import bruschetta from "../assets/Bruchetta.svg";
-import LemonDessert from "../assets/LemonDessert.jpg";
-
+import greekSalad from '../assets/Salad.jpg';
+import bruschetta from '../assets/Bruchetta.svg';
+import LemonDessert from '../assets/LemonDessert.jpg';
 
 export const occasion = [
   { value: '', label: 'None' },
@@ -10,10 +9,10 @@ export const occasion = [
   { value: 'anniversary', label: 'Anniversary' },
 ];
 export const tablePreference = [
-    { value: '', label: 'None' },
-    { value: 'inside', label: 'Inside' },
-    { value: 'outside', label: 'Outside' },
-  ]
+  { value: '', label: 'None' },
+  { value: 'inside', label: 'Inside' },
+  { value: 'outside', label: 'Outside' },
+];
 
 export const specialsData = [
   {
@@ -38,3 +37,27 @@ export const specialsData = [
       "This comes straight from grandma's recipe book, every last ingredient has been sourced and is as authentic as can be imagined.",
   },
 ];
+
+export const emailRegex = /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/;
+
+export const ACTION_TYPES = {
+  NAME: 'NAME',
+  EMAIL: 'EMAIL',
+  DATE: 'DATE',
+  TIME: 'TIME',
+  GUESTS: 'GUESTS',
+  TABLE: 'TABLE',
+  OCCASION: 'OCCASION',
+  MESSAGE: 'MESSAGE',
+};
+
+export const FORM = {
+  name: 'name',
+  email: 'email',
+  date: 'date',
+  time: 'time',
+  numberOfGuests: 'numberOfGuests',
+  tablePreference: 'tablePreference',
+  occasion: 'occasion',
+  message: 'message',
+};
