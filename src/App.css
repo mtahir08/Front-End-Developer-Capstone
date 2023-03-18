@@ -1,85 +1,50 @@
-/* Set the overall font family and size */
-body {
-    font-family: Arial, sans-serif;
-    font-size: 16px;
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
-/* Style the navigation bar */
-nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #333;
-    color: #fff;
-    padding: 10px;
+html,
+body,
+#root {
+  width: 100%;
+  height: 100%;
 }
 
-nav a {
-    color: #fff;
-    margin-right: 10px;
-    text-decoration: none;
+#root {
+  display: flex;
+  flex-direction: column;
 }
 
-nav h1 {
-    margin: 0;
-}
-
-/* Style the profile picture and name */
-aside {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 200px;
-    height: 100vh;
-    background-color: #eee;
-    position: fixed;
-    top: 0;
-    left: 0;
-}
-
-.profile-img {
-    width: 80%;
-    border-radius: 50%;
-    margin: 20px 0;
-}
-
-.profile-name {
-    margin: 0;
-}
-
-/* Style the main content */
 main {
-    margin-left: 220px;
-    padding: 20px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 10rem;
+  padding-top: 10rem;
+}
+
+main button {
+  max-height: smaller;
 }
 
 section {
-    margin-bottom: 30px;
+  width: 100%;
+  padding: 0 15%;
 }
 
-section h1 {
-    font-size: 28px;
-    margin-bottom: 10px;
+h1 {
+  font-size: 4rem;
 }
 
-section h2 {
-    font-size: 24px;
-    margin-bottom: 10px;
-}
-
-section p {
-    line-height: 1.5;
-}
-
-/* Style the footer */
-footer {
-    background-color: #333;
-    color: #fff;
-    padding: 10px;
-    text-align: center;
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 100%;
+button {
+  padding: 15px 30px;
+  font-size: 16pt;
+  font-weight: 600;
+  background-color: #f4ce14;
+  color: #333;
+  border-radius: 20px;
+  border: none;
 }
