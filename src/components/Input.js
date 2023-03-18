@@ -13,7 +13,7 @@ const Input = ({ label, type, value, options, onChange, name }) => {
     <label className='input-container'>
       <p>{label}</p>
       {type === 'select' ? (
-        <select {...inputProps}>
+        <select {...inputProps} data-testid={name}>
           {options.map(({ value, label }) => (
             <option key={value} value={value}>
               {label}
@@ -21,7 +21,7 @@ const Input = ({ label, type, value, options, onChange, name }) => {
           ))}
         </select>
       ) : (
-        <input {...inputProps} />
+        <input {...inputProps} data-testid={name} />
       )}
     </label>
   );
