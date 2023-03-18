@@ -59,3 +59,36 @@
   aspect-ratio: 5 / 6;
   object-fit: cover;
 }
+
+
+
+@media (max-width: 768px) {
+  .header-container {
+    flex-direction: column;
+    height: auto;
+    padding: 0 10%;
+  }
+
+  .header-left,
+  .header-right {
+    width: 100%;
+  }
+
+  .header-left {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+
+  .header-title {
+    margin-top: 1rem;
+    font-size: 2.5rem;
+    line-height: 1.2;
+  }
+
+  .header-image {
+    margin-top: 2rem;
+    width: 100%;
+    aspect-ratio: 3 / 2;
+    object-fit: cover;
+  }
+}
