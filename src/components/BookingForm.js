@@ -1,16 +1,19 @@
 import React from 'react';
-import useForm from '../hooks/useForm';
+import { useForm } from '../hooks/useForm';
 import Input from './Input';
 import './BookingForm.css';
 import { occasion, tablePreference, FORM } from '../utils/Constants';
+import { submitAPI } from './../utils/apiMockup';
 
 const BookingForm = ({ navigate }) => {
-  const { form, timeSlots, isFormValid, handleInputChange, handleSubmit } =
-    useForm();
+  const { form, handleInputChange, isFormValid, timeSlots } = useForm();
 
-  function handleSubmitForm() {
-    const response = handleSubmit();
-    return response ? navigate('/booking-confirmation') : null;
+  function handleSubmitForm(event) {
+    event.preventDefault();
+    if (isFormValid) {
+      submitAPI(form);
+      navigate('/booking-confirmation');
+    }
   }
 
   return (

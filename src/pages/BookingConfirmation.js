@@ -1,18 +1,23 @@
 import React from 'react';
+import { useForm } from '../hooks/useForm';
+import './BookingConfirmation.css';
 
-const BookingConfirmation = ({
-  name,
-  date,
-  time,
-  numberOfGuests,
-  tablePreference,
-  occasion = false,
-  message = false,
-}) => {
+const BookingConfirmation = () => {
+  const {
+    form: {
+      name,
+      date,
+      time,
+      numberOfGuests,
+      tablePreference,
+      occasion = false,
+      message = false,
+    },
+  } = useForm();
   return (
     <main>
       <section
-        style={{ display: 'flex', 'flex-direction': 'column', gap: '0.5rem' }}
+        style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}
       >
         <h1>Thank you for your booking, {name}!</h1>
         <p>

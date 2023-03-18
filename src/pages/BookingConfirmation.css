@@ -1,0 +1,26 @@
+.booking-confirmation {
+  padding: 2rem;
+  border: 2px solid #333;
+  border-radius: 1rem;
+  background-color: #fff;
+  max-width: 50rem;
+  margin: 0 auto;
+}
+
+.booking-confirmation__title {
+  font-size: 2rem;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.booking-confirmation__details {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+}
+
+.booking-confirmation__occasion,
+.booking-confirmation__table,
+.booking-confirmation__message {
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+}

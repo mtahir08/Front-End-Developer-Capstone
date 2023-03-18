@@ -5,11 +5,9 @@ import Footer from './layouts/Footer';
 import Home from './pages/Home';
 import Booking from './pages/Booking';
 import BookingConfirmation from './pages/BookingConfirmation';
-import { useFormContext } from './store/FormContext';
 import './App.css';
 
 function App() {
-  const { form } = useFormContext();
 
   return (
     <BrowserRouter>
@@ -17,10 +15,7 @@ function App() {
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/booking' element={<Booking />} />
-        <Route
-          path='/booking-confirmation'
-          element={<BookingConfirmation {...form} />}
-        />
+        <Route path='/booking-confirmation' element={<BookingConfirmation />} />
       </Routes>
       <Footer />
     </BrowserRouter>
