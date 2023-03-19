@@ -5,10 +5,12 @@ import Footer from './layouts/Footer';
 import Home from './pages/Home';
 import Booking from './pages/Booking';
 import BookingConfirmation from './pages/BookingConfirmation';
+import About from './pages/About';
+import Login from './pages/Login';
+import Order from './pages/Order';
 import './App.css';
 
 function App() {
-
   return (
     <BrowserRouter>
       <NavBar />
@@ -16,6 +18,9 @@ function App() {
         <Route path='/' element={<Home />} />
         <Route path='/booking' element={<Booking />} />
         <Route path='/booking-confirmation' element={<BookingConfirmation />} />
+        <Route path='/about' element={<About />} />
+        <Route path='/login' element={<Login />} />
+        <Route path='/order' element={<Order />} />
       </Routes>
       <Footer />
     </BrowserRouter>

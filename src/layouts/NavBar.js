@@ -23,9 +23,9 @@ function NavBar() {
           </Link>
         </li>
         <li>
-          <a href='#about' onClick={toggleNav}>
+          <Link to='/about' onClick={toggleNav}>
             About
-          </a>
+          </Link>
         </li>
         <li>
           <a href='#menu' onClick={toggleNav}>
@@ -38,14 +38,14 @@ function NavBar() {
           </Link>
         </li>
         <li>
-          <a href='#order-online' onClick={toggleNav}>
+          <Link to='/order' onClick={toggleNav}>
             Order Online
-          </a>
+          </Link>
         </li>
         <li>
-          <a href='#login' onClick={toggleNav}>
+          <Link to='/login' onClick={toggleNav}>
             Login
-          </a>
+          </Link>
         </li>
       </ul>
     </nav>

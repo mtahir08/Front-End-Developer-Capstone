@@ -50,6 +50,7 @@
 }
 
 .order-btn {
+  display: block;
   margin-top: auto;
   cursor: pointer;
   background-color: #feca57;
