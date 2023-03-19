@@ -45,10 +45,14 @@ const BookingForm = ({ navigate }) => {
           type='select'
           name={FORM.time}
           value={form.time}
-          options={timeSlots.map((slot) => ({
-            value: slot,
-            label: slot,
-          }))}
+          options={
+            timeSlots?.length
+              ? timeSlots?.map((slot) => ({
+                  value: slot,
+                  label: slot,
+                }))
+              : []
+          }
           onChange={handleInputChange}
         />
       </div>

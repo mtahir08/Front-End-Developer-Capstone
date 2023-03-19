@@ -1,5 +1,5 @@
 import React, { createContext, useReducer, useContext } from 'react';
-
+import { fetchAPI } from '../utils/apiMockup';
 const initialState = {
   name: '',
   email: '',
@@ -39,7 +39,10 @@ const FormProvider = ({ children }) => {
     dispatch({ type: 'RESET_FORM' });
   }
 
-  const timeSlots = ['10:00', '12:00', '14:00', '16:00', '18:00', '20:00'];
+  const timeSlots = React.useMemo(() => {
+    if(form.date)
+    return fetchAPI(new Date(form.date))
+  }, [form.date]);
 
   const isFormValid = Object.values(form).every((value) => Boolean(value));
 

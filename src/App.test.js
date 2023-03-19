@@ -134,7 +134,7 @@ describe('BookingForm', () => {
     fireEvent.change(nameInput, { target: { value: 'John Doe' } });
     fireEvent.change(emailInput, { target: { value: 'john.doe@example.com' } });
     fireEvent.change(dateInput, { target: { value: '2023-04-01' } });
-    fireEvent.change(timeInput, { target: { value: '12:00' } });
+    fireEvent.change(timeInput, { target: { value: '18:00' } });
     fireEvent.change(numberOfGuestsInput, { target: { value: '4' } });
     fireEvent.change(occasionInput, { target: { value: 'birthday' } });
     fireEvent.change(tablePreferenceInput, { target: { value: 'outside' } });
