@@ -1,3 +1,20 @@
+@font-face {
+  font-family: "hero";
+  src: url(./fonts/Hero-Light.otf);
+}
+
+body {
+  margin: 0;
+  font-family: "hero";
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
 *,
 *::before,
 *::after {
